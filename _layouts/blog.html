@@ -1,0 +1,50 @@
+---
+title: "Blog - Giovanni Cortes"
+description: ""
+layout: default
+pagination:
+enabled: true
+---
+
+{% include header.html %}
+
+<div class="container">
+  <div class="posts">
+    {% for post in site.posts %}
+    <a href="{{ post.url }}" style="text-decoration: none">
+      <article class="article-card">
+        <div
+          class="thumbnail"
+          style="background-image: url('{{ post.image }}');"
+          href="{{ post.url }}"
+        ></div>
+        <div class="content">
+          <div class="info">
+            <span class="date">{{ post.date | date: "%e %B %Y" }}</span>
+          </div>
+          <h3>{{ post.title }}</h3>
+          <p class="excerpt">{{ post.excerpt }}</p>
+        </div>
+      </article>
+    </a>
+    {% endfor %}
+  </div>
+
+  <div class="flex pagination">
+    {% if paginator.previous_page %}
+    <a class="pagination-previous"
+        href="{{ paginator.previous_page_path | prepend: site.url | replace: 'index.html', '' }}">← Previous</a>
+    {% endif %}
+
+    {% if paginator.page_trail %}
+    {% for trail in paginator.page_trail %}
+    <a {% if page.url==trail.path %}class="active" {% endif %} title="{{trail.title}}"
+        href="{{ trail.path | prepend: site.url | replace: 'index.html', '' }}">{{ trail.num }}</a>
+    {% endfor %}
+    {% endif %}
+
+    {% if paginator.next_page %}
+    <a class="pagination-next"
+        href="{{ paginator.next_page_path | prepend: site.url | replace: 'index.html', '' }}">Next →</a>
+    {% endif %}
+</div>

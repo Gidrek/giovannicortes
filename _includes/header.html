@@ -1,8 +1,10 @@
 <header>
-  <h1>Giovanni Cort&eacute;s</h1>
+  <div class="container flex align-center">
+    <!-- TODO: Create the logo -->
+  </div>
 
   <nav>
-    <ul>
+    <ul class="right">
         {% for item in site.data.navigation %}
         <li>
             <a href="{{ item.link }}" {% if page.url == item.link %}class="link-active"{% endif %}>{{ item.name }}</a>
