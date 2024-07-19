@@ -1,0 +1,42 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Giovanni Cortes" />
+  <meta
+    name="description"
+    content="{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt }}{% else %}Programación, GameDev y Linux{% endif %}"
+  />
+  <meta name="theme-color" content="#3d8fcc" />
+  <meta property="og:site_name" content="Giovanni Cortes" />
+  <meta
+    property="og:url"
+    content="{{ site.url }}{{ page.url | replace_first: 'index.html', '' }}"
+  />
+  <meta name="twitter:site" content="@gidrekdev" />
+
+  <meta
+    property="og:title"
+    content="{{ page.title | default: 'Giovanni Cortes' }}"
+  />
+  <meta
+    property="og:description"
+    content="{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt }}{% else %}Programación, GameDev y Linux{% endif %}"
+  />
+  <meta
+    property="og:image"
+    content="{{ site.url }}{{ page.image | default: '/assets/share-image.webp' }}"
+  />
+  <meta property="og:type" content="{{ page.og_type | default: 'website' }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>{{ page.title | default: "Giovanni Cortes" }}</title>
+
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="Lo nuevo en giovannicortes.com"
+    href="/rss.xml"
+  />
+  <link rel="icon" href="/assets/favicon.png" sizes="any" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>

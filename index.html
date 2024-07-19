@@ -16,3 +16,7 @@ layout: default
   <li><a href="{{ post.url }}" class="text-dark">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
+
+{% if jekyll.environment == "production" %}
+<h2>This is for testing production deploy with Digital Ocean</h2>
+{% endif %}

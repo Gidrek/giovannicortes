@@ -1,0 +1,13 @@
+<header>
+  <h1>Giovanni Cort&eacute;s</h1>
+
+  <nav>
+    <ul>
+        {% for item in site.data.navigation %}
+        <li>
+            <a href="{{ item.link }}" {% if page.url == item.link %}class="link-active"{% endif %}>{{ item.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+  </nav>
+</header>
