@@ -8,3 +8,5 @@ group :jekyll_plugins do
     gem "jekyll-paginate"
 end
 
+
+gem "sass-embedded", "= 1.62.0"
