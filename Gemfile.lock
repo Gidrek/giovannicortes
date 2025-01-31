@@ -165,5 +165,10 @@ DEPENDENCIES
   logger
   tzinfo-data
 
+PLATFORMS
+  arm64-darwin-23
+  x64-mingw-ucrt
+  x86_64-linux
+
 BUNDLED WITH
    2.6.3
