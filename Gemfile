@@ -2,6 +2,8 @@
 
 source "https://rubygems.org"
 
+ruby "3.3.4"
+
 # gem "rails"
 gem "jekyll"
 gem "webrick", "~> 1.7"
