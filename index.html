@@ -7,5 +7,7 @@ Artículos
 </h2>
 
 <ul>
-    <li><a href="#"></a></li>
+    {% for post in site.posts %}
+    <li><a href="{{ post.url }}" class="text-dark">{{ post.title }}</a></li>
+    {% endfor %}
 </ul>
