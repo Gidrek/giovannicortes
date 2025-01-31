@@ -1,12 +1,9 @@
 source "https://rubygems.org"
 
-gem "jekyll"
-gem "logger"
+gem "jekyll", "~> 4.0.0"
 
 group :jekyll_plugins do
     gem "jekyll-feed", "~> 0.6"
     gem "jekyll-paginate"
 end
 
-
-gem "sass-embedded", "= 1.62.0"
