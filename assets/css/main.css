@@ -10,3 +10,56 @@ body {
     line-height: 1.5;
     max-width: 75rem;
 }
+
+blockquote {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    width: 100%;
+    border-left: solid 3px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+blockquote.hint-info {
+    background-color: #f9f9f9;
+    color: #0143ef;
+}
+
+blockquote.hint-warning {
+    background-color: #f9f9f9;
+    color: #ec0a3b;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+figure img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+pre {
+    background: #f8f8f8;
+    font-family: monospace;
+    display: block;
+    overflow-x: auto;
+    font-size: 1.3rem;
+    white-space: pre-wrap;
+    margin: 20px 0;
+    padding: 1.5rem;
+    line-height: 1.4;
+    border: 1px dotted;
+}
