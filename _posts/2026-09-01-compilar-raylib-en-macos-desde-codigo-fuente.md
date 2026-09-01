@@ -43,11 +43,11 @@ We restart the terminal to install cmake
 brew install cmake
 ```
 
-Now yes, we're ready to compile raylib.
+Now we're ready to compile raylib.
 
 ## Compiling raylib
 
-First we need to download the repository, into whatever folder we want.
+First, we need to download the repository, into whatever folder you want.
 
 ```bash
 git clone https://github.com/raysan5/raylib.git
@@ -92,9 +92,9 @@ ls /usr/local/lib/libraylib.a
 
 Now we're going to make a small demo to see if what we've done works. This time I'll use Visual Studio Code since it's the most common one.
 
-We create a folder and in there create a file called `main.cpp` and write the code from the raylib examples.
+We create a folder and in there create a file called `main.c` and write the code from the raylib examples.
 
-```cpp
+```c
 #include <raylib.h>
 
 
@@ -127,7 +127,7 @@ And we create a `Makefile`
 
 ```plaintext
 build:
-	clang -g -O0 main.cpp -o game \
+	clang -g -O0 main.c -o game \
 		-lraylib \
 		-framework OpenGL \
 		-framework Cocoa \
