@@ -1,0 +1,26 @@
+title: Gidrek
+site_author: Giovanni Cortes
+description: >
+  Creating games and apps
+baseurl: ""
+url: "https://gidrek.com"
+
+
+paginate: 10
+paginate_path: "blog/page:num"
+
+parmalink: /:title/
+
+
+# Build settings
+markdown: kramdown
+markdown_ext: md
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
+include:
+  - _pages
