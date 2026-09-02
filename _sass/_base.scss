@@ -1,0 +1,58 @@
+@use "sass:math";
+
+$title-font-stack: monospace;
+$body-font-stack: 'Barlow', sans-serif;
+$main-background-color: #f8f6f6;
+$main-text-color: #3a3a3a;
+$highlight-color: #e85c41;
+$body-font-color: #59594a;
+
+$spacing-unit: 30px !default;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+ul,
+ol,
+dl,
+figure,
+%vertical-rhythm {
+  margin-bottom: math.div($spacing-unit, 2);
+}
+
+/* Custom CSS */
+
+body {
+    background: $main-background-color;
+    font-family: $body-font-stack;
+    font-size: 1rem;
+    font-weight: 400;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+header {
+    display: flex;
+}
+
+main {
+    a {
+        text-decoration: none;   
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+table {
+    border: 1px dotted black;
+    margin: 0 auto;
+}

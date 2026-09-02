@@ -1,61 +1,66 @@
 ---
 layout: default
-title:  Compiling Raylib on macOS from source
+title:  Compilar Raylib en macOS desde el código fuente
 date:   2026-09-01 15:00:00 -0600
-description: Compiling Raylib on macOS from source
+description: Compilar Raylib en macOS desde el código fuente
 categories: GameDev
-permalink: /compiling-raylib-on-macos-from-source/
+permalink: /compilar-raylib-desde-codigo-fuente/
 ---
 
-# Compiling Raylib on macOS from source
+# Compilar Raylib en macOS desde el código fuente
 
-We're going to install raylib on mac from the repo, that way you can have the most up-to-date code in case you don't want to install it from homebrew. Another advantage is that when you install from the repository you can pass it whatever parameters you want, in case you'd like to use SDL or the new software renderer, or to optimize it.
+Vamos a instalar raylib en mac desde los repositorios, así vas a poder tener el código más actualizado si es no lo quieres instalar desde homebrew, 
+otra ventaja es que al instalar desde  el repositorio puedes pasarle los parámetros que deseses por si quieres usar SDL o el nuevo render por 
+software u optimizarlo. 
 
-You can find these parameters in the documentation. For now we're going to install it with the most common ones, but you can experiment with the different options.
+Estos parámetros lo puedes ver en la documentación, por ahora vamos a instalarlo con los parámetros más comunes, pero puedes experimentar con 
+varias opciones.
 
-## Prerequisites
+## Prerequisitos
 
-First of all, we need the Xcode tools in order to compile. You don't need to download Xcode itself, but you do need to install the `Xcode Command Line Tools`.
+Primero que nada, necesitamos las herramientas de Xcode para compilar, no es necesario que descargues XCode, pero si  que instales las herramientas de `Xcode Command Line Tool`
 
 ```bash
 xcode-select --install
 ```
 
-Now we need to download cmake. The easiest way is through homebrew, which is going to come in handy for other installs too. We could also install raylib with homebrew, but we're going to compile it for the reason I already told you.
+Ahora, debemos descargar cmake, aunque lo más sencillo es hacerlo por medio de homebrew, que de igual manera nos va a servir para otras 
+instalaciones, también podemos instalar raylib con homebrew, pero nosotros lo vamos a compilar por lo que ya te dije. 
 
-If we go to [https://brew.sh/](https://brew.sh/) it'll show us the instructions.
+Si vamos a [https://brew.sh/](https://brew.sh/) nos indicará las instrucciones.
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Once that's done, we need to add homebrew to our path, so let's edit the `.zshrc` file, which you can open with vim: `vim .zshrc`, or any other editor you like. In there, put the following export at the end of the document.
+Una vez hecho esto, debemos agregar homebrew a nuestro path, así que editemos el archivo `.zshrc` , que puedes abrilo con vim: `vim .zshrc`  u o
+tro editor que desees, ahí pon el siguiente export al final del documento.
 
 ```plaintext
 export PATH=.:$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH
 ```
 
-With this we're adding the most common code directories to the path.
+Con esto agregamos al path los directorios más comunes de código.
 
-We restart the terminal to install cmake
+Reiniciamos la terminal para instalar cmake
 
 ```bash
 brew install cmake
 ```
 
-Now we're ready to compile raylib.
+Ahora si, ya estamos listo para compilar raylib.
 
-## Compiling raylib
+## Compilar raylib
 
-First, we need to download the repository, into whatever folder you want.
+Primero debemos bajar el repositorio, en alguna carpeta que queramos.
 
 ```bash
 git clone https://github.com/raysan5/raylib.git
 cd raylib
-git checkout 6.0   # switch to whatever tag you need, or you can stay on main
+git checkout 6.0   # cambia al tag que necesites o te puedes quedar en main
 ```
 
-Now that we have the code, we're going to compile with cmake
+Ya que tenemos el código, vamos a compilar con cmake
 
 ```bash
 mkdir build && cd build
@@ -69,32 +74,34 @@ make -j$(sysctl -n hw.logicalcpu)
 sudo make install
 ```
 
-First we create the build folder and move into it, we run cmake with the parameters we need, and here we can see all the options we can pass it: [https://github.com/raysan5/raylib/wiki/CMake-Build-Options](https://github.com/raysan5/raylib/wiki/CMake-Build-Options)
+Primero creamos la carpeta de build y nos pasamos a la carpeta, hacemos el cmake con los parámetros que necesitamos, aquí podemos ver todas 
+las opciones que le podemos pasar: [https://github.com/raysan5/raylib/wiki/CMake-Build-Options](https://github.com/raysan5/raylib/wiki/CMake-Build-Options)
 
-The part that says `make -j$(sysctl -n hw.logicalcpu)` is to compile using all the cores of our CPU so it takes less time, and at the end we install into `/usr/local`, which is the parameter we passed it.
+La parte que dice `make -j$(sysctl -n hw.logicalcpu)` es para compilar usando todos los cores de nuestra CPU y tarde menos, y al final 
+instalamos en `/usr/local` que es el parámetro que le pasamos.
 
-This installs into:
+Esto instala en:
 
-| **File**              | **Destination**                |
-| --------------------- | ------------------------------ |
-| Header `raylib.h`     | `/usr/local/include/`          |
-| Library `libraylib.a` | `/usr/local/lib/`              |
-| CMake config          | `/usr/local/lib/cmake/raylib/` |
+| **Archivo**            | **Destino**                    |
+| ---------------------- | ------------------------------ |
+| Header `raylib.h`      | `/usr/local/include/`          |
+| Librería `libraylib.a` | `/usr/local/lib/`              |
+| CMake config           | `/usr/local/lib/cmake/raylib/` |
 
-And we can verify the installation
+Y podemos verificar la instalación
 
 ```bash
 ls /usr/local/include/raylib.h
 ls /usr/local/lib/libraylib.a
 ```
 
-## Testing raylib
+## Probar raylib
 
-Now we're going to make a small demo to see if what we've done works. This time I'll use Visual Studio Code since it's the most common one.
+Ahora vamos a hacer un pequeño demo para ver si lo que hemos hecho funciona. En esta ocasión usaré Visual Studio Code ya que es el más común.
 
-We create a folder and in there create a file called `main.c` and write the code from the raylib examples.
+Creamos un folder y ahí crea un archivo `main.cpp`  y escribimos el código de los ejemplos de raylib.
 
-```c
+```cpp
 #include <raylib.h>
 
 
@@ -110,7 +117,6 @@ int main()
     {
         BeginDrawing();
 
-
         ClearBackground(RAYWHITE);
         DrawText("Congrats! You created your second window!", 190, 200, 20, LIGHTGRAY);
 
@@ -123,11 +129,11 @@ int main()
 
 ```
 
-And we create a `Makefile`
+Y creamos un archivo `Makefile`
 
 ```plaintext
 build:
-	clang -g -O0 main.c -o game \
+	clang -g -O0 main.cpp -o game \
 		-lraylib \
 		-framework OpenGL \
 		-framework Cocoa \
@@ -143,15 +149,15 @@ clean:
 
 ```
 
-This is going to help us compile. Now we can simply run `make` in the terminal, in the folder where the code lives, and it'll compile the game, and then `make run` to run the example. But we're going to make use of Visual Studio so we can use the debugger and set breakpoints and see what's going on with our code.
+Esto nos va a ayudar a compilar. Ahora simplemente podemos hacer `make`  en la terminal, en la carpeta donde está el código, y compilará el juego, 
+y luego `make run` para correr el ejemplo, pero vamos a hacer uso de Visual Studio para que podamos usar el debugger y así hacer breakpoints y 
+ver qué pasa con nuestro código.
 
-Create a folder called `.vscode` (don't forget the dot) and create two files, one called `launch.json` and another one `tasks.json`. In the `launch.json` file write the following:
+Crea una carpeta llamado `.vscode` (no te olvides del punto) y crea dos archivos, uno llamado `launch.json` y otro `tasks.json` . 
+En el archivo `launch.json` escribe lo siguiente:
 
 ```json
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
@@ -172,7 +178,7 @@ Create a folder called `.vscode` (don't forget the dot) and create two files, on
 }
 ```
 
-And in `tasks.json` you're going to put the following
+Y en el `tasks.json` vas poner lo siguiente
 
 ```json
 {
@@ -192,6 +198,6 @@ And in `tasks.json` you're going to put the following
 }
 ```
 
-And now you can run it with `F5`. If you want to try out the debugger, set a breakpoint and you'll see if it works.
+Y ahora puedes correrlo con `F5` , si quieres probar el debugger, pon un break point y así vas a ver si funciona.
 
-With all this, you're ready to start programming with raylib.
+Con todo esto, ya tienes listo para poder programar con raylib.
