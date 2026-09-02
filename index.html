@@ -2,16 +2,62 @@
 layout: default
 ---
 
-<h2>Hi there!</h2>
+<section class="hero">
+  <div class="hero-copy">
+    <h1>¡Hola!</h1>
+    <p>
+      Soy Giovanni Cortés, un ingeniero de software que le gusta la
+      programación, juegos, computadoras y entender cómo las cosas funcionan.
+    </p>
+  </div>
 
-<p>Software engineer with an interest for programming, game development and learning.</p>
+  <img
+    class="hero-image"
+    src="{{ '/assets/img/retro-desk-transparent.png' | relative_url }}"
+    alt="Escritorio retro con computadora"
+  />
+</section>
 
-<h2>Articles</h2>
+<section class="recent-articles">
+  <h2>Artículos Recientes</h2>
+  {% for post in site.posts limit: 8 %}
+  <article class="article-row">
+    <time>{{ post.date | date: "%Y-%m-%d" }}</time>
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <span class="tag">{{ post.categories | first }}</span>
+  </article>
+  {% endfor %}
+</section>
 
-<hr>
+<div class="home-columns">
+  <section class="featured-projects">
+    <h2>Proyectos Destacados</h2>
 
-<ul>
-    {% for post in site.posts %}
-    <li>{{ post.date | date: "%Y-%m-%d" }}: <a href="{{ post.url }}" class="text-dark">{{ post.title }}</a></li>
-    {% endfor %}
-</ul>
+    <article>
+      <h3>Nombre del Proyecto</h3>
+      <p>Descripción breve del proyecto destacado.</p>
+      <a href="#">Ver más</a>
+    </article>
+  </section>
+
+  <section class="about-summary">
+    <h2>Acerca de Mí</h2>
+    <p>
+      Soy un desarrollador backend de día y un entusiaste retro gamer de noche.
+      Disfruto contruir cosas, investigar sobre cómo funcionan los sitemas y
+      compartir lo que aprendo.
+    </p>
+
+    <p>Este sitio es donde escribo sobre:</p>
+
+    <ul>
+      <li>Ingeniería de Software</li>
+      <li>Game Development</li>
+      <li>Juegos retro y hardware</li>
+      <li>Computarodas, herramientas y experimentos</li>
+    </ul>
+
+    <p>Si te gustan todas estas cosas, estás en el lugar correcto.</p>
+    <a href="/acerca/">Conoce más sobre mí →</a>
+  </section>
+</div>
