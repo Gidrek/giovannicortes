@@ -1,5 +1,9 @@
 ---
 # Only the main Sass file needs front  matter
 ---
-@use "base";
-@use "syntax-highlighting";
+@charset "utf-8";
+
+@import 
+	"base",
+	"syntax-highlighting"
+;
