@@ -1,0 +1,63 @@
+---
+layout: default
+---
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1>¡Hola!</h1>
+    <p>
+      Soy Giovanni Cortés, un desarrollador de Software que disfruta programar,
+      jugar videojuegos, la electrónica y entender cómo las cosas funcionan.
+    </p>
+  </div>
+
+  <img
+    class="hero-image"
+    src="{{ '/assets/img/retro-desk-transparent.png' | relative_url }}"
+    alt="Retro desk with a computer"
+  />
+</section>
+
+<section class="recent-articles">
+  <h2>Posts recientes</h2>
+  {% for post in site.posts limit: 8 %}
+  <article class="article-row">
+    <time>{{ post.date | date: "%Y-%m-%d" }}</time>
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <span class="tag">{{ post.categories | first }}</span>
+  </article>
+  {% endfor %}
+</section>
+
+<div class="home-columns">
+  <section class="featured-projects">
+    <h2>Projectos</h2>
+
+    <article>
+      <h3>Project Name</h3>
+      <p>Brief description of the featured project.</p>
+      <a href="#">Learn more</a>
+    </article>
+  </section>
+
+  <section class="about-summary">
+    <h2>Acerca de mi</h2>
+    <p>
+      Soy un desarrollador bakcend, me gusta mucho trabajar con Python y C#,
+      también tengo el sueño de crear un juego para consolas retro como el 
+      GameBoy y el GameBoy Advance.
+    </p>
+
+    <p>Estaré escribiendo sobre:</p>
+
+    <ul>
+      <li>Software Engineering</li>
+      <li>Game Development</li>
+      <li>Retro games y hardware</li>
+      <li>Computadoras, herramientas y experimentos</li>
+    </ul>
+
+    <p>Si disfrutas estas cosas, creo que te va a gustar mi blog</p>
+    <a href="/acerca/">Lee más acerca de mí →</a>
+  </section>
+</div>

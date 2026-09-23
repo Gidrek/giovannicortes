@@ -1,0 +1,26 @@
+title: Giovanni Cortés
+site_author: Giovanni Cortés
+description: >
+  Desarrollador de Software (Python, C#, GameDev)
+baseurl: ""
+url: "https://giovannicortes.com"
+
+
+paginate: 10
+paginate_path: "blog/page:num"
+
+parmalink: /:title/
+
+
+# Build settings
+markdown: kramdown
+markdown_ext: md
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
+include:
+  - _pages
